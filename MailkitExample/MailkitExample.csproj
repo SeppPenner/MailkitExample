@@ -13,4 +13,10 @@
     <PackageReference Include="MailKit" Version="2.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Example.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
