@@ -14,16 +14,16 @@ namespace MailKitExample
     {
         public static async Task Main(string[] args)
         {
+            const string UserName = "GMX-Email";
+            const string Password = "Password";
+            const string ReceiverAddress = "Receiver-GMX-Email";
+
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Joey", "joey@friends.com"));
-            message.To.Add(new MailboxAddress("Alice", "alice@wonderland.com"));
+            message.From.Add(new MailboxAddress("Joey", UserName));
+            message.To.Add(new MailboxAddress("Alice", ReceiverAddress));
             message.Subject = "How you doing?";
 
-            var builder = new BodyBuilder
-            {
-                TextBody = @"Hey Alice, ..."
-            };
-
+            var builder = new BodyBuilder();
             var currentLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var logoPath = $"{Path.Combine(currentLocation, "Example.png")}";
             var image = builder.LinkedResources.Add(logoPath);
@@ -36,7 +36,7 @@ namespace MailKitExample
             await emailClient.ConnectAsync("mail.gmx.net", 465, true).ConfigureAwait(false);
             emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
 
-            await emailClient.AuthenticateAsync("username", "password").ConfigureAwait(false);
+            await emailClient.AuthenticateAsync(UserName, Password).ConfigureAwait(false);
             await emailClient.SendAsync(message).ConfigureAwait(false);
             await emailClient.DisconnectAsync(true).ConfigureAwait(false);
         }
