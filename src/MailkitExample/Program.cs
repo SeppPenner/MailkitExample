@@ -1,4 +1,11 @@
-﻿
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Program.cs" company="Hämmer Electronics">
+//   Copyright (c) All rights reserved.
+// </copyright>
+// <summary>
+//   The main program.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
 namespace MailKitExample
 {
     using System.IO;
@@ -10,8 +17,16 @@ namespace MailKitExample
 
     using MailKit.Net.Smtp;
 
+    /// <summary>
+    /// The main program.
+    /// </summary>
     public static class Program
     {
+        /// <summary>
+        /// The main method.
+        /// </summary>
+        /// <param name="args">The args.</param>
+        /// <returns>A <see cref="Task"/> representing any asynchronous operation.</returns>
         public static async Task Main(string[] args)
         {
             const string UserName = "GMX-Email";
@@ -25,7 +40,7 @@ namespace MailKitExample
 
             var builder = new BodyBuilder();
             var currentLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var logoPath = $"{Path.Combine(currentLocation, "Example.png")}";
+            var logoPath = $"{Path.Combine(currentLocation ?? string.Empty, "Example.png")}";
             var image = builder.LinkedResources.Add(logoPath);
             image.ContentId = MimeUtils.GenerateMessageId();
             builder.HtmlBody = $@"<p>Hey Alice, ... <center><img src=""cid:{image.ContentId}""></center>";

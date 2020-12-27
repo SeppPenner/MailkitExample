@@ -2,7 +2,7 @@ MailkitExample
 ====================================
 
 MailkitExample is a test application to test [MailKit's embedded image sending feature](http://www.mimekit.net/).
-The assembly was written and tested in .Net Core 3.1.
+The assembly was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/su80s0j3uoltw0wx?svg=true)](https://ci.appveyor.com/project/SeppPenner/mailkitexample)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/MailkitExample.svg)](https://github.com/SeppPenner/MailkitExample/issues)
@@ -14,4 +14,4 @@ The assembly was written and tested in .Net Core 3.1.
 Change history
 --------------
 
-* **Version 1.0.0.0 (2020-01-29)** : 1.0 release.
+See the [Changelog](https://github.com/SeppPenner/MailkitExample/blob/master/Changelog.md).
